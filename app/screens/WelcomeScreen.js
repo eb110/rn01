@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { StyleSheet, View, Image, ImageBackground } from 'react-native';
 
 import AppText from '../components/AppText';
-import colors from '../config/colors';
+import AppButton from '../components/AppButton';
 
 function WelcomeScreen(props) {
     return (
 
         <ImageBackground
+            blurRadius={1}
             style={styles.background}
             source={require('../assets/background.jpg')}
         >
@@ -17,10 +17,12 @@ function WelcomeScreen(props) {
                     source={require('../assets/logo-red.png')}
                     style={styles.logo}
                 />
-                <AppText>Sell what you don't need</AppText>
+                <AppText textSize={24} >Sell what you don't need</AppText>
             </View>
-            <View style={styles.loginButton} />
-            <View style={styles.registerButton} />
+            <View style={styles.buttonsContainer}>
+                <AppButton title='login' textColor='white' />
+                <AppButton title='register' textColor='white' buttonColor='secondary' />
+            </View>
 
         </ImageBackground>
 
@@ -33,6 +35,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
     },
+    buttonsContainer: {
+        width: '100%',
+        padding: 15,
+    },
     logo: {
         width: 80,
         height: 80,
@@ -41,21 +47,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         top: 80,
-    },
-    logoText: {
-        fontSize: 18,
-    },
-    loginButton: {
-        width: '100%',
-        height: 70,
-        backgroundColor: colors.primary,
-        justifyContent: 'flex-end',
-    },
-    registerButton: {
-        width: '100%',
-        height: 70,
-        backgroundColor: colors.secondary,
-        justifyContent: 'flex-end',
     },
 });
 

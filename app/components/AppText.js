@@ -1,12 +1,14 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
-function AppText({ children }) {
+import colors from '../config/colors';
+
+function AppText({ children, textColor = 'black', textSize = 18 }) {
     return (
         <View style={{
 
         }}>
-            <Text style={styles.text}>{children}</Text>
+            <Text style={[styles.text, { fontSize: textSize, color: colors[textColor] }]}>{children}</Text>
         </View>
     );
 }
@@ -14,7 +16,6 @@ function AppText({ children }) {
 const styles = StyleSheet.create({
     text: {
         fontFamily: Platform.OS === 'android' ? 'serif' : 'Avenir',
-        fontSize: 20,
         fontWeight: 'bold',
     }
 })
