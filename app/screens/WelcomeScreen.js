@@ -20,8 +20,8 @@ function WelcomeScreen(props) {
                 <AppText textSize={24} >Sell what you don't need</AppText>
             </View>
             <View style={styles.buttonsContainer}>
-                <AppButton title='login' textColor='white' />
-                <AppButton title='register' textColor='white' buttonColor='secondary' />
+                <AppButton title='login' />
+                <AppButton title='register' buttonColor='secondary' />
             </View>
 
         </ImageBackground>
