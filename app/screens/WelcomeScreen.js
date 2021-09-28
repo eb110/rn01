@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, ImageBackground } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import AppText from '../components/AppText';
 import colors from '../config/colors';
 
 function WelcomeScreen(props) {
@@ -15,11 +17,7 @@ function WelcomeScreen(props) {
                     source={require('../assets/logo-red.png')}
                     style={styles.logo}
                 />
-                <Text
-                    style={styles.logoText}
-                >
-                    Sell what you don't need
-                </Text>
+                <AppText>Sell what you don't need</AppText>
             </View>
             <View style={styles.loginButton} />
             <View style={styles.registerButton} />
