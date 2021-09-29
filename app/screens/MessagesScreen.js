@@ -1,32 +1,33 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import AppListItem from '../components/AppListItem';
+import AppScreen from '../components/AppScreen';
 
 const messages = [
     {
         id: 1,
         title: 'wladek',
-        desription: 'nomnom',
+        description: 'nomnom',
         image: require('../assets/wladek.jpg')
     },
     {
         id: 2,
         title: 'gabi',
-        desription: 'mimim',
+        description: 'mimim',
         image: require('../assets/gabi.jpg')
     },
     {
         id: 3,
         title: 'blondyna',
-        desription: 'blondi',
+        description: 'blondi',
         image: require('../assets/Natalia.jpg')
     },
 ]
 
 function MessagesScreen(props) {
     return (
-        <View style={styles.container}>
+        <AppScreen>
             <FlatList
                 data={messages}
                 keyExtractor={message => message.id.toString()}
@@ -34,17 +35,15 @@ function MessagesScreen(props) {
                     <AppListItem
                         image={item.image}
                         title={item.title}
-                        subTitle={item.desription}
+                        subTitle={item.description}
                     />}
             />
-        </View>
+        </AppScreen>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
 
-    }
-});
+})
 
 export default MessagesScreen;
