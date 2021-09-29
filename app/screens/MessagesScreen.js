@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import AppListItem from '../components/AppListItem';
+import AppListItemSeparator from '../components/AppListItemSeparator';
 import AppScreen from '../components/AppScreen';
 
 const messages = [
@@ -37,6 +38,7 @@ function MessagesScreen(props) {
                         title={item.title}
                         subTitle={item.description}
                     />}
+                ItemSeparatorComponent={AppListItemSeparator}
             />
         </AppScreen>
     );
