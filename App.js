@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import ListingsScreen from './app/screens/ListingsScreen';
+import AppTextInput from './app/components/AppTextInput';
+import Screen from './app/components/Screen';
 
 export default function App() {
+
   return (
-    <ListingsScreen />
+    <Screen>
+      <AppTextInput
+        icon='email'
+        placeholder='dupa'
+      />
+    </Screen>
   );
 }
