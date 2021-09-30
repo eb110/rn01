@@ -8,8 +8,8 @@ export default function App() {
   return (
     <Screen>
       <AppTextInput
+        placeholder='dupablada'
         icon='email'
-        placeholder='dupa'
       />
     </Screen>
   );
