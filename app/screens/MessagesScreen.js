@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 
-import AppListItem from '../components/AppListItem';
-import AppListItemSeparator from '../components/AppListItemSeparator';
+import ListItem from '../components/ListItem';
+import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 
@@ -43,14 +43,14 @@ function MessagesScreen(props) {
                 data={messages}
                 keyExtractor={message => message.id.toString()}
                 renderItem={({ item }) =>
-                    <AppListItem
+                    <ListItem
                         image={item.image}
                         title={item.title}
                         subTitle={item.description}
                         onPress={() => console.log('dupa')}
                         renderRightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item)} />}
                     />}
-                ItemSeparatorComponent={AppListItemSeparator}
+                ItemSeparatorComponent={ListItemSeparator}
                 refreshing={refreshing}
                 onRefresh={() => {
                     setMessages([{

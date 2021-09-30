@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from 'react-native';
 
 import colors from '../config/colors';
 import AppText from '../components/AppText';
-import AppListItem from '../components/AppListItem';
+import ListItem from '../components/ListItem';
 
 function ListingDetailsScreen(props) {
     return (
@@ -13,7 +13,7 @@ function ListingDetailsScreen(props) {
                 <AppText style={styles.title}>Jacket for sale</AppText>
                 <AppText style={styles.subTitle}>200£</AppText>
             </View>
-            <AppListItem
+            <ListItem
                 image={require('../assets/wladek.jpg')}
                 title='Wladek'
                 subTitle='wfigura@op.pl'

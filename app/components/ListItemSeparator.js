@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import colors from '../config/colors';
 
-function AppListItemSeparator(props) {
+function ListItemSeparator(props) {
     return (
         <View style={styles.separator} />
     );
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AppListItemSeparator;
+export default ListItemSeparator;
