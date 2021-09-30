@@ -8,7 +8,6 @@ function Card({ title, subTitle, image }) {
         <View style={styles.card}>
             <Image
                 style={styles.image}
-                resizeMode='contain'
                 source={image}
             />
             <View style={styles.detailsContainer}>
@@ -22,7 +21,6 @@ function Card({ title, subTitle, image }) {
 const styles = StyleSheet.create({
     card: {
         width: '100%',
-        height: '50%',
         backgroundColor: colors.white,
         borderRadius: 25,
         marginBottom: 20,
@@ -34,8 +32,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: '72%',
-        alignSelf: 'center',
+        height: 200,
     },
     subTitle: {
         color: colors.secondary,
