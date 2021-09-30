@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 
 import AppListItem from '../components/AppListItem';
 import AppListItemSeparator from '../components/AppListItemSeparator';
-import AppScreen from '../components/AppScreen';
+import Screen from '../components/Screen';
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 
-const messages = [
+const initialMessages = [
     {
         id: 1,
         title: 'wladek',
@@ -28,8 +28,17 @@ const messages = [
 ]
 
 function MessagesScreen(props) {
+
+    const [messages, setMessages] = useState(initialMessages);
+    const [refreshing, setRefreshing] = useState(false);
+
+    const handleDelete = message => {
+        //the update of the state will rerender the component
+        setMessages(messages.filter(x => x.id !== message.id));
+    }
+
     return (
-        <AppScreen>
+        <Screen>
             <FlatList
                 data={messages}
                 keyExtractor={message => message.id.toString()}
@@ -39,11 +48,20 @@ function MessagesScreen(props) {
                         title={item.title}
                         subTitle={item.description}
                         onPress={() => console.log('dupa')}
-                        renderRightActions={ListItemDeleteAction}
+                        renderRightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item)} />}
                     />}
                 ItemSeparatorComponent={AppListItemSeparator}
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([{
+                        id: 4,
+                        title: 'sandra',
+                        description: 'poczus',
+                        image: require('../assets/sandra.jpg')
+                    }])
+                }}
             />
-        </AppScreen>
+        </Screen>
     );
 }
 
