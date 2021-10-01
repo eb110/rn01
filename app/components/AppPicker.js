@@ -7,7 +7,13 @@ import defaultStyles from '../config/styles';
 import colors from '../config/colors';
 import PickerItem from './PickerItem';
 
-function AppPicker({ icon, items, placeholder }) {
+function AppPicker({
+    icon,
+    items,
+    onSelectItem,
+    placeholder,
+    selectedItem
+}) {
 
     const [modalVisible, setModalVisible] = useState(false)
 
@@ -22,7 +28,9 @@ function AppPicker({ icon, items, placeholder }) {
                         style={styles.icon}
                     />}
                     <View style={{ flex: 1 }}>
-                        <AppText>{placeholder}</AppText>
+                        <AppText>
+                            {selectedItem ? selectedItem.label : placeholder}
+                        </AppText>
                     </View>
                     <MaterialCommunityIcons
                         name='chevron-down'
@@ -42,7 +50,14 @@ function AppPicker({ icon, items, placeholder }) {
                     renderItem={({ item }) =>
                         <PickerItem
                             label={item.label}
-                            onPress={() => console.log(item)}
+                            onPress={() => {
+                                setModalVisible(false);
+                                onSelectItem(item);
+                                //example
+                                // const [category, setCategory] = useState();
+                                //       selectedItem={category}
+                                //onSelectItem={item => setCategory(item)}
+                            }}
                         />}
                 />
             </Modal>

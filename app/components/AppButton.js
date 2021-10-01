@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import colors from '../config/colors.js'
 import AppText from './AppText.js';
+import defaultStyles from '../config/styles';
 
-function AppButton({ buttonColor, onPress, textStyle, title }) {
+function AppButton({ buttonColor, onPress, title }) {
     return (
-        <TouchableOpacity style={[styles.button, { backgroundColor: colors[buttonColor] }]} onPress={onPress}>
-            <AppText style={textStyle}>{title}</AppText>
+        <TouchableOpacity
+            style={[styles.button, { backgroundColor: defaultStyles.colors[buttonColor] }]}
+            onPress={onPress}>
+            <AppText style={[defaultStyles.text, { textTransform: 'capitalize' }]}>{title}</AppText>
         </TouchableOpacity>
     );
 }

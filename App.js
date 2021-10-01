@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import AppPicker from './app/components/AppPicker';
 import AppTextInput from './app/components/AppTextInput';
 import Screen from './app/components/Screen';
+import LoginScreen from './app/screens/LoginScreen';
 
 const categories = [
   {
@@ -28,10 +29,10 @@ const categories = [
 ]
 
 export default function App() {
+
+  const [category, setCategory] = useState();
+
   return (
-    <Screen>
-      <AppPicker icon='apps' placeholder='Category' items={categories} />
-      <AppTextInput icon='email' placeholder='Email' />
-    </Screen>
+    <LoginScreen />
   );
 }
