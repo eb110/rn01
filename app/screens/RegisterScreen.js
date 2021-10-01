@@ -4,8 +4,8 @@ import * as yup from 'yup';
 import { Image, StyleSheet } from 'react-native';
 
 import AppButton from '../components/AppButton';
-import AppText from '../components/AppText';
 import AppTextInput from '../components/AppTextInput';
+import AppErrorMessage from '../components/AppErrorMessage';
 import Screen from '../components/Screen';
 
 const validationSchema = yup.object().shape({
@@ -33,7 +33,7 @@ function RegisterScreen(props) {
                             onChangeText={handleChange('name')}
                             placeholder='Name'
                         />
-                        <AppText>{errors.name}</AppText>
+                        <AppErrorMessage>{errors.name}</AppErrorMessage>
                         <AppTextInput
                             autoCapitalize='none'
                             autoCorrect={false}
@@ -42,7 +42,7 @@ function RegisterScreen(props) {
                             onChangeText={handleChange('email')}
                             placeholder='Email'
                         />
-                        <AppText>{errors.email}</AppText>
+                        <AppErrorMessage>{errors.email}</AppErrorMessage>
                         <AppTextInput
                             autoCapitalize='none'
                             autoCorrect={false}
@@ -51,7 +51,7 @@ function RegisterScreen(props) {
                             placeholder='Password'
                             secureTextEntry
                         />
-                        <AppText>{errors.password}</AppText>
+                        <AppErrorMessage>{errors.password}</AppErrorMessage>
                         <AppButton
                             buttonColor='primary'
                             onPress={handleSubmit}
