@@ -4,9 +4,9 @@ import { StyleSheet, View } from 'react-native';
 import AppText from './AppText';
 import defaultSyles from '../config/styles';
 
-function AppErrorMessage({ error, textColor = 'danger' }) {
+function AppErrorMessage({ error, textColor = 'danger', visible }) {
 
-    if (!error) return null;
+    if (!visible || !error) return null;
 
     return (
         <View style={styles.container}>

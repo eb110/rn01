@@ -4,8 +4,7 @@ import * as yup from 'yup';
 import { Image, StyleSheet } from 'react-native';
 
 import AppButton from '../components/AppButton';
-import AppTextInput from '../components/AppTextInput';
-import AppErrorMessage from '../components/AppErrorMessage';
+import AppFormField from '../components/AppFormField';
 import Screen from '../components/Screen';
 
 const validationSchema = yup.object().shape({
@@ -24,34 +23,31 @@ function RegisterScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                {({ handleChange, handleSubmit, errors }) => (
+                {({ handleSubmit }) => (
                     <>
-                        <AppTextInput
+                        <AppFormField
+                            name='name'
                             autoCapitalize='none'
                             autoCorrect={false}
                             icon='account-plus'
-                            onChangeText={handleChange('name')}
                             placeholder='Name'
                         />
-                        <AppErrorMessage>{errors.name}</AppErrorMessage>
-                        <AppTextInput
+                        <AppFormField
+                            name='email'
                             autoCapitalize='none'
                             autoCorrect={false}
                             icon='email'
                             keyboardType='email-address'
-                            onChangeText={handleChange('email')}
                             placeholder='Email'
                         />
-                        <AppErrorMessage>{errors.email}</AppErrorMessage>
-                        <AppTextInput
+                        <AppFormField
+                            name='password'
                             autoCapitalize='none'
                             autoCorrect={false}
                             icon='lock'
-                            onChangeText={handleChange('password')}
                             placeholder='Password'
                             secureTextEntry
                         />
-                        <AppErrorMessage>{errors.password}</AppErrorMessage>
                         <AppButton
                             buttonColor='primary'
                             onPress={handleSubmit}
