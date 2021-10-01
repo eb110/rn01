@@ -35,6 +35,6 @@ export default function App() {
   const [category, setCategory] = useState();
 
   return (
-    <RegisterScreen />
+    <LoginScreen />
   );
 }
