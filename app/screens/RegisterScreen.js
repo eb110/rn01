@@ -5,14 +5,22 @@ import AppButton from '../components/AppButton';
 import AppTextInput from '../components/AppTextInput';
 import Screen from '../components/Screen';
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
 
     const [email, setEmail] = useState();
+    const [name, setName] = useState();
     const [password, setPassword] = useState();
 
     return (
         <Screen style={styles.container}>
             <Image style={styles.logo} source={require('../assets/logo-red.png')} />
+            <AppTextInput
+                autoCapitalize='none'
+                autoCorrect={false}
+                icon='account-plus'
+                onChangeText={text => setName(text)}
+                placeholder='Name'
+            />
             <AppTextInput
                 autoCapitalize='none'
                 autoCorrect={false}
@@ -31,8 +39,8 @@ function LoginScreen(props) {
             />
             <AppButton
                 buttonColor='primary'
-                onPress={() => console.log(email + '\n' + password)}
-                title='login'
+                onPress={() => console.log(name + '\n' + email + '\n' + password)}
+                title='register'
             />
         </Screen>
 
@@ -52,4 +60,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
