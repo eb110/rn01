@@ -1,9 +1,9 @@
 import React from 'react';
-import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Image, StyleSheet } from 'react-native';
 
 import AppButtonSubmit from '../components/AppButtonSubmit';
+import AppForm from '../components/AppForm';
 import AppFormField from '../components/AppFormField';
 import Screen from '../components/Screen';
 
@@ -15,38 +15,33 @@ function LoginScreen(props) {
     return (
         <Screen style={styles.container}>
             <Image style={styles.logo} source={require('../assets/logo-red.png')} />
-            <Formik
+            <AppForm
                 initialValues={{ email: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                {() => (
-                    <>
-                        <AppFormField
-                            name='email'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            icon='email'
-                            keyboardType='email-address'
-                            placeholder='Email'
-                        />
-                        <AppFormField
-                            name='password'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            icon='lock'
-                            placeholder='Password'
-                            secureTextEntry
-                        />
-                        <AppButtonSubmit
-                            buttonColor='primary'
-                            title='login'
-                        />
-                    </>
-                )}
-            </Formik>
+                <AppFormField
+                    name='email'
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    icon='email'
+                    keyboardType='email-address'
+                    placeholder='Email'
+                />
+                <AppFormField
+                    name='password'
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                    icon='lock'
+                    placeholder='Password'
+                    secureTextEntry
+                />
+                <AppButtonSubmit
+                    buttonColor='primary'
+                    title='login'
+                />
+            </AppForm>
         </Screen>
-
     );
 }
 
