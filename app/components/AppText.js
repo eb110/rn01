@@ -12,8 +12,7 @@ function AppText({ children, style }) {
 const styles = StyleSheet.create({
     text: {
         fontFamily: Platform.OS === 'android' ? 'serif' : 'Avenir',
-        fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 20,
         color: colors.black,
     }
 })

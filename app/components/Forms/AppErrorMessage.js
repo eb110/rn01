@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import AppText from './AppText';
-import defaultSyles from '../config/styles';
+import AppText from '../AppText';
+import defaultSyles from '../../config/styles';
 
 function AppErrorMessage({ error, textColor = 'danger', visible }) {
 

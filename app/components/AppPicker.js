@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Button, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Button, FlatList, Modal, Platform, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AppText from './AppText';
 import defaultStyles from '../config/styles';
-import colors from '../config/colors';
 import PickerItem from './PickerItem';
 
 function AppPicker({
@@ -28,9 +27,8 @@ function AppPicker({
                         style={styles.icon}
                     />}
                     <View style={{ flex: 1 }}>
-                        <AppText>
-                            {selectedItem ? selectedItem.label : placeholder}
-                        </AppText>
+                        {selectedItem ? (<AppText>{selectedItem.label}</AppText>) :
+                            (<AppText style={styles.placeholder}>{placeholder}</AppText>)}
                     </View>
                     <MaterialCommunityIcons
                         name='chevron-down'
@@ -43,7 +41,7 @@ function AppPicker({
                 visible={modalVisible}
                 animationType="slide"
             >
-                <Button title='Close' backgroundColor={colors.blue} onPress={() => setModalVisible(false)} />
+                <Button title='Close' backgroundColor={defaultStyles.colors.blue} onPress={() => setModalVisible(false)} />
                 <FlatList
                     data={items}
                     keyExtractor={item => item.id.toString()}
@@ -76,6 +74,11 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: 10,
+    },
+    placeholder: {
+        fontSize: 20,
+        color: defaultStyles.colors.mediumGrey,
+        fontFamily: Platform.OS === 'android' ? 'serif' : 'Avenir',
     },
 });
 
