@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableHighlight, View } from 'react-native';
-
-import colors from '../config/colors';
-import AppText from './AppText';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Swipeable } from 'react-native-gesture-handler';
+
+import AppText from './AppText';
+import defaultStyles from '../config/styles';
 
 function ListItem({ image, IconComponent, onPress, renderRightActions, subTitle, title }) {
     return (
@@ -12,15 +13,20 @@ function ListItem({ image, IconComponent, onPress, renderRightActions, subTitle,
         >
             <TouchableHighlight
                 onPress={onPress}
-                underlayColor={colors.yellow}
+                underlayColor={defaultStyles.colors.yellow}
             >
                 <View style={styles.container}>
                     {IconComponent}
                     {image && <Image style={styles.image} source={image} />}
                     <View style={styles.detailsContainer}>
-                        <AppText style={styles.title}>{title}</AppText>
-                        {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                        <AppText numberOfLines={1}>{title}</AppText>
+                        {subTitle && <AppText style={styles.subTitle} numberOfLines={1}>{subTitle}</AppText>}
                     </View>
+                    <MaterialCommunityIcons
+                        name='chevron-right'
+                        color={defaultStyles.colors.mediumGrey}
+                        size={30}
+                    />
                 </View>
             </TouchableHighlight>
         </Swipeable>
@@ -29,13 +35,14 @@ function ListItem({ image, IconComponent, onPress, renderRightActions, subTitle,
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.lightGrey,
+        alignItems: 'center',
+        backgroundColor: defaultStyles.colors.lightGrey,
         flexDirection: 'row',
-        width: '100%',
         padding: 10,
-        alignItems: 'center'
+        width: '100%',
     },
     detailsContainer: {
+        flex: 1,
         justifyContent: 'center',
         paddingLeft: 15,
     },
@@ -46,11 +53,8 @@ const styles = StyleSheet.create({
         width: 70,
     },
     subTitle: {
-        color: colors.mediumGrey,
+        color: defaultStyles.colors.mediumGrey,
         fontSize: 16,
-    },
-    title: {
-        fontSize: 20,
     },
 });
 
