@@ -6,12 +6,12 @@ import defaultStyles from '../config/styles';
 
 import Screen from './Screen';
 
-function PickerItem({ label, onPress }) {
+function PickerItem({ item, onPress }) {
     return (
         <TouchableOpacity onPress={onPress}>
             <Screen>
                 <View style={styles.container}>
-                    <AppText style={defaultStyles.text}>{label}</AppText>
+                    <AppText style={defaultStyles.text}>{item.label}</AppText>
                 </View>
             </Screen>
         </TouchableOpacity>

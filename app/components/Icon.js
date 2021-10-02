@@ -21,7 +21,7 @@ function Icon({
         }}>
             <MaterialCommunityIcons
                 name={name}
-                size={size * 0.7}
+                size={size * 0.6}
                 color={iconColor}
             />
         </View>
