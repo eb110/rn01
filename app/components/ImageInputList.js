@@ -1,23 +1,34 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useRef } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import ImageInput from './ImageInput';
 
 function ImageInputList({ imageUris = [], onAddImage, onRemoveImage }) {
+
+    const scrollView = useRef();
+
     return (
-        <View style={styles.container}>
-            {imageUris.map(uri => (
-                <View style={{ marginRight: 5 }} key={uri}>
+        <View>
+            <ScrollView
+                horizontal
+                onContentSizeChange={() => scrollView.current.scrollToEnd()}
+                ref={scrollView}
+            >
+                <View style={styles.container}>
+                    {imageUris.map(uri => (
+                        <View style={{ marginRight: 5 }} key={uri}>
+                            <ImageInput
+                                imageUri={uri}
+                                key={uri} //react prop
+                                onChangeImage={() => onRemoveImage(uri)}
+                            />
+                        </View>
+                    ))}
                     <ImageInput
-                        imageUri={uri}
-                        key={uri} //react prop
-                        onChangeImage={() => onRemoveImage(uri)}
+                        onChangeImage={uri => onAddImage(uri)}
                     />
                 </View>
-            ))}
-            <ImageInput
-                onChangeImage={uri => onAddImage(uri)}
-            />
+            </ScrollView>
         </View>
     );
 }
