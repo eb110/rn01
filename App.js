@@ -1,14 +1,12 @@
 import React from 'react';
-
-import Screen from './app/components/Screen';
-import ImageInputList from './app/components/ImageInputList';
-import ListingEditScreen from './app/screens/ListingEditScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 export default function App() {
 
   return (
-    <Screen>
-      <ListingEditScreen />
-    </Screen>
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
   );
 }
