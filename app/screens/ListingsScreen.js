@@ -20,7 +20,7 @@ const listings = [
     },
 ]
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
     return (
         <Screen>
             <View style={styles.container}>
@@ -30,8 +30,9 @@ function ListingsScreen(props) {
                     renderItem={({ item }) =>
                         <Card
                             image={item.image}
-                            title={item.title}
+                            onPress={() => navigation.navigate('ListingDetails', item)}
                             subTitle={'£' + item.price}
+                            title={item.title}
                         />
                     }
                 />
